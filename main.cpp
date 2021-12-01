@@ -2,46 +2,60 @@
 
 
 
-char conversione(char x){
 
-    char ris;
+bool verifica(char x){
 
     if( ((x>='a') && (x<='z')) || ((x>='A') && (x<='Z')) ) {
 
-            std::cout << "vero" << std::endl;
+        return true;
 
-    }else if((x!='a') && (x!='z')) {
+    }return false;
 
-        std::cout << "errore" << std::endl;
-    }
 
-    if(x>='A' && x <= 'Z'){
+    /*else if( ((x!='a') && (x!='z')) || ((x!='A') && (x!='Z')) ) {
 
-        ris = x+32;
+        falso
+    }*/
 
-    }else if (x>='a' && x <= 'z') {
 
-        ris = x-32;
-    }
-    return  ris;
 }
 
-int main() {
+char conversione(char x) {
 
+    char ris;
+
+    if (x >= 'A' && x <= 'Z') {
+
+        ris = x + 32;
+
+    } else if (x >= 'a' && x <= 'z') {
+
+        ris = x - 32;
+    }
+}
+int main() {
 
     char x;
 
-
     std::cin >> x;
 
-    char z =conversione(x);
+    bool z =verifica(x);
 
-    std::cout << z << std::endl;
+    if(verifica(x)==true){
+
+        std::cout << conversione(x) <<std::endl;
+
+    }else {
+
+        std::cout << "errore" <<std::endl;
+
+    }
+
+
 
 
     return 0;
 }
-
 
 
 
